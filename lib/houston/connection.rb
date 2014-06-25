@@ -36,7 +36,7 @@ module Houston
       @socket = TCPSocket.new(@uri.host, @uri.port)
 
       context = OpenSSL::SSL::SSLContext.new
-#      context.timeout = 10 
+      context.timeout = 10 
       context.ssl_timeout = 10 # see fi this fixes the apns timeouts
       context.key = OpenSSL::PKey::RSA.new(@certificate, @passphrase)
       context.cert = OpenSSL::X509::Certificate.new(@certificate)
